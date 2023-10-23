@@ -58,9 +58,11 @@
               <p class="text-xs">{{ comment.content }}</p>
             </div>
           {% endfor %}
-            {% if paginate.pages > 1 %}
-              {{ paginate | default_pagination }}
-            {%- endif -%}
+
+        <div class="max-w-6xl mx-auto">
+          {% render 'pagination', pagination: paginate %}
+        </div>
+
         {% endpaginate %}
       </div>
     {% else %}
@@ -97,7 +99,7 @@
                 Comment is posted successfully.
               </div>
             </div>
-          {%- endif -%}
+          {% endif %}
         <div class="px-1 md:flex mb-3">
           <div class="px-3 md:w-1/2">
             <label for="comment_author" class="text-gray-700 font-medium uppercase text-xs mb-2">Name</label>

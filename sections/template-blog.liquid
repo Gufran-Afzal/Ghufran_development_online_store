@@ -20,13 +20,18 @@
                                 {% else %}
                                     <p>{{ article.content | strip_html | truncatewords: 50 }}</p>
                             {%- endif -%}
-                            <a class="font-medium text-blue-600 hover:text-blue-800" href="{{ article.url }}">{{ section.settings.blog_read_more }}</a>
+                            <a class="font-medium text-blue-600 hover:text-blue-800 my-4 block" href="{{ article.url }}">{{ section.settings.blog_read_more }}</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+
+    <div class="max-w-6xl mx-auto">
+        {% render 'pagination', pagination: paginate %}
+    </div>
+
     {% endpaginate %}
 </div>
 
