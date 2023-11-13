@@ -54,7 +54,7 @@
           {% for comment in article.comments %}
             <div class="flex-1 border my-4 px-4 py-2 sm:px-6 sm:py-4 reading-relaxed">
               <span class="comment-author text-lg font-bold">{{ comment.author }}</span> 
-              <span class="text-xs text-black">{{ comment.created_at | date: format:'default' }}</span>
+              <span class="text-xs text-black">{{ comment.created_at | date: format: 'default' }}</span>
               <p class="text-xs">{{ comment.content }}</p>
             </div>
           {% endfor %}
@@ -133,15 +133,15 @@
   "@type": "BlogPosting",
   "headline": {{ article.title | json }},
   "articleBody": {{ article.content | strip_html | json }},
-  {%- if aricle.excerpt != blank -%}
+  {% if aricle.excerpt != blank %}
     "description": {{ aricle.excerpt | strip_html | json }},
-  {%- endif -%}
-  {%- if article.image -%}
+  {% endif %}
+  {% if article.image %}
     "image": [
       {{ article.image | image_url: "medium" | prepend: 'https:' | json }}
     ],
-  {%- endif -%}
-  "datePublished": {{ article.published_at | date: format: "default" |json }},
+  {% endif %}
+  "datePublished": {{ article.published_at | date: format: "default" | json }},
   "dateCreated": {{ article.created_at | date: format: "default" | json }},
   "author": {
     "@type": "Person",

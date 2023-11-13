@@ -4,5 +4,5 @@
             "type": "template-customer-activate-account"
         }
     },
-    "orders": ["template"]
+    "order": ["template"]
 }

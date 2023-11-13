@@ -1,4 +1,4 @@
-<div class="relative bg-black" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
+<div class="relative bg-black" x-data="{ mobileMenuOpen: false, searchBarOpen: false }" x-cloak>
   <div class="mx-auto px-4 sm:px-6">
     <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
       <!-- STORE NAME / STORE LOGO -->
@@ -71,7 +71,7 @@
               {% if shop.customer_accounts_enabled %}
                   {% if customer %}
                       <a href="{{ routes.account_url }}" class="text-base text-white hover:text-yellow-500">account</a>
-                      {{ 'Log out'  | customer_logout_link | replace: '<a', '<a class="text-base text-white hover:text-yellow-500"' }}
+                      {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-white hover:text-yellow-500"' }}
                   {% else %}
                       {{ 'Log in ' | customer_login_link | replace: '<a', '<a class="text-base text-white hover:text-yellow-500"' }}
                       {{ 'Register' | customer_register_link | replace: '<a', '<a class="text-base text-white hover:text-yellow-500"' }}
@@ -106,7 +106,7 @@
             {% for link in linklists.main-menu.links %}
               {% assign link_handle = link.handle | replace: '-', '_' %}
               {% if link.links != blank %}
-                <div x-data="{ {{link_handle}}: false }" class="relative">
+                <div x-data="{ {{ link_handle }}: false }" class="relative">
                   <button
                     x-on:click="{{ link_handle }} = ! {{link_handle}}"
                     type="button"
